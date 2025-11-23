@@ -1,0 +1,28 @@
+//Stored procedure for Property//
+
+ CREATE OR REPLACE PROCEDURE AddProperty(
+     p_owner_id IN NUMBER,
+     p_title IN VARCHAR2,
+     p_description IN VARCHAR2,
+     p_address IN VARCHAR2,
+     p_rent_price IN NUMBER
+ )
+ IS
+ BEGIN
+     INSERT INTO Properties(owner_id, title, description, address, rent_price)
+     VALUES(p_owner_id, p_title, p_description, p_address, p_rent_price);
+ END;
+ /
+
+// Stored Procedure for User//
+CREATE PROCEDURE AddUser(
+    IN p_name VARCHAR(100),
+    IN p_email VARCHAR(100),
+    IN p_phone VARCHAR(20),
+    IN p_password VARCHAR(100),
+    IN p_role VARCHAR(20)
+)
+BEGIN
+    INSERT INTO Users(full_name, email, phone, password, role)
+    VALUES (p_name, p_email, p_phone, p_password, p_role);
+END;

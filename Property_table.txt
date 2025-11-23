@@ -1,0 +1,11 @@
+CREATE TABLE properties (
+    property_id INT PRIMARY KEY ,
+    owner_id INT,
+    title VARCHAR(150),
+    location VARCHAR(200),
+    rent DECIMAL(10,2),
+    status VARCHAR(20) DEFAULT 'Available',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (owner_id) REFERENCES owners(owner_id)
+)
+

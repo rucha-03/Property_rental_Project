@@ -1,0 +1,6 @@
+CREATE VIEW vw_available_properties AS
+SELECT property_id, title, address, rent_price
+FROM Properties
+WHERE status = 'Available';
+
+

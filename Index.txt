@@ -1,0 +1,2 @@
+CREATE INDEX idx_properties_status 
+ON Properties(status);

@@ -1,0 +1,21 @@
+CREATE TRIGGER trg_after_booking_insert
+AFTER INSERT ON Bookings
+FOR EACH ROW
+BEGIN
+    UPDATE Properties
+    SET status = 'Booked'
+    WHERE property_id = :new.property_id;
+end;
+/
+
+7)
+ CREATE OR REPLACE TRIGGER trg_after_user_checkout
+ AFTER UPDATE OF checkout ON Bookings
+ FOR EACH ROW
+ WHEN (NEW.checkout IS NOT NULL AND OLD.checkout IS NULL)
+ BEGIN
+     UPDATE Properties
+     SET status = 'Available'
+     WHERE property_id = :NEW.property_id;
+ END;
+ /

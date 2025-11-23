@@ -1,0 +1,9 @@
+ CREATE TABLE Comments (
+    comment_id varchar(5) PRIMARY KEY,
+    property_id INT,
+    user_id INT,
+    comment_text TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (property_id) REFERENCES Properties(property_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);

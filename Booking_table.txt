@@ -1,0 +1,10 @@
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY ,
+    user_id INT,
+    property_id INT,
+    booking_date DATE,
+    status VARCHAR(20) DEFAULT 'Booked',
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (property_id) REFERENCES properties(property_id)
+)
+
